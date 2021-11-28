@@ -16,6 +16,7 @@ import com.cilegondev.dgithubuser.adapters.UserListAdapter
 import com.cilegondev.dgithubuser.models.User
 import com.cilegondev.dgithubuser.models.UserViewModel
 import com.cilegondev.dgithubuser.widgets.SearchView
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 /**
@@ -40,13 +41,21 @@ class HomeFragment : Fragment() {
         adapter.notifyDataSetChanged()
         view.rvListUser.layoutManager = LinearLayoutManager(context)
         view.rvListUser.adapter = adapter
-        userViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        ).get(UserViewModel::class.java)
         showLoading(true)
         userViewModel.setUser(view.edtSearch.text?.trim().toString())
 
         userViewModel.getUsers().observe(viewLifecycleOwner, Observer { users ->
             if (users != null) {
-                adapter.setData(users)
+                adapter.setData(users, UserListAdapter.NORMAL_LIST)
+                if (users.isEmpty()) {
+                    layNoData.visibility = View.VISIBLE
+                } else {
+                    layNoData.visibility = View.GONE
+                }
                 showLoading(false)
             }
         })
@@ -60,14 +69,14 @@ class HomeFragment : Fragment() {
             false
         })
 
-        adapter.setOnItemClickCallback(object : UserListAdapter.OnItemClickCallback{
+        adapter.setOnItemClickCallback(object : UserListAdapter.OnItemClickCallback {
             override fun onItemClicked(user: User) {
                 showSelectedUser(user)
             }
         })
 
         view.edtSearch.setOnClear(object : SearchView.OnClear {
-            override fun onClear(){
+            override fun onClear() {
                 userViewModel.setUser(view.edtSearch.text?.trim().toString())
             }
         })

@@ -9,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserViewModel: ViewModel() {
+class UserViewModel : ViewModel() {
     val listUsers = MutableLiveData<ArrayList<User>>()
 
     fun setUser(name: String) {
@@ -18,6 +18,7 @@ class UserViewModel: ViewModel() {
                 override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
                     Log.d("ERROR ", t.message.toString())
                 }
+
                 override fun onResponse(
                     call: Call<ArrayList<User>>,
                     response: Response<ArrayList<User>>
@@ -25,13 +26,13 @@ class UserViewModel: ViewModel() {
                     listUsers.postValue(response.body())
                     Log.d("RESPONSE : ", response.body().toString())
                 }
-
             })
-        }else{
+        } else {
             ApiClient.create().searchUsers(name).enqueue(object : Callback<SearchUserResponse> {
                 override fun onFailure(call: Call<SearchUserResponse>, t: Throwable) {
                     Log.d("ERROR ", t.message.toString())
                 }
+
                 override fun onResponse(
                     call: Call<SearchUserResponse>,
                     response: Response<SearchUserResponse>
@@ -43,6 +44,7 @@ class UserViewModel: ViewModel() {
             })
         }
     }
+
     fun getUsers(): LiveData<ArrayList<User>> {
         return listUsers
     }

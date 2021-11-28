@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <fragment
         android:id="@+id/container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/main_navigation"
-        />
+        app:navGraph="@navigation/main_navigation" />
+
     <com.cilegondev.dgithubuser.widgets.FabBottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -25,11 +26,9 @@
         app:itemIconTint="@drawable/state_bnview"
         app:menu="@menu/bottom_menu"
         app:labelVisibilityMode="labeled"
-        app:itemTextColor="@drawable/state_bnview"
-        />
+        app:itemTextColor="@drawable/state_bnview" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -37,6 +36,5 @@
         app:layout_anchor="@id/bottom_navigation"
         app:layout_anchorGravity="fill_vertical|center_horizontal"
         android:src="@drawable/ic_add_black_24dp"
-        android:backgroundTint="@color/colorAccent"
-        />
+        android:backgroundTint="@color/colorAccent" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

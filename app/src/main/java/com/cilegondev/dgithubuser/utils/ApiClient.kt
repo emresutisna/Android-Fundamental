@@ -7,16 +7,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
-    companion object{
-        private val baseUrl = "https://api.github.com/"
+    companion object {
+        private const val baseUrl = "https://api.github.com/"
         private val httpClient = OkHttpClient.Builder()
         fun create(): ApiService {
-            httpClient.addInterceptor(Interceptor() {
+            httpClient.addInterceptor(Interceptor {
                 val original = it.request()
                 val request = original.newBuilder()
                     .header("User-Agent", "request")
                     .header("Authorization", BuildConfig.API_KEY)
-                    .method(original.method(), original.body())
+                    .method(original.method, original.body)
                     .build()
                 it.proceed(request)
 

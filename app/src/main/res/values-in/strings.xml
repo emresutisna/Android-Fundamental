@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">DGithub User</string>
     <string name="menu_home">Beranda</string>
-    <string name="menu_saved">Disimpan</string>
+    <string name="menu_saved">Favorit</string>
     <string name="menu_profile">Profil</string>
     <string name="nama_user">Nama Pengguna</string>
     <string name="username">Nama Pengguna</string>
@@ -14,14 +14,31 @@
     <string name="following_text">Mengikuti</string>
     <string name="following_count">120</string>
     <string name="location">Lokasi</string>
-    <string name="follow_text">IKUTI</string>
     <string name="user_login">Nama Login</string>
-    <string name="menu_lang">Bahasa</string>
-    <string name="user_company">Perusahaan Pengguna</string>
-    <string name="user_location">Lokasi Pengguna</string>
     <string name="find_user">Cari Pengguna...</string>
     <string name="menu_user_info">Info Pengguna</string>
     <string name="company_not_set">Perusahaan Belum Diatur</string>
     <string name="name_not_set">Nama Lengkap Belum Diatur</string>
     <string name="location_not_set">Lokasi Belum Diatur</string>
+    <string name="save_text">Favorit</string>
+    <string name="save_title">Simpan Data?</string>
+    <string name="save_message">Yakin simpan data pengguna ini sebagai favorit?</string>
+    <string name="cancel_text">Batal</string>
+
+    <string name="saved_text">Pengguna Favorit</string>
+    <string name="saved_success">Data pengguna berhasil disimpan</string>
+    <string name="user_already_exist">Data pengguna ini sudah ada di dalam database</string>
+    <string name="menu_setting">Pengaturan</string>
+    <string name="setting_text">DGithub - Pengaturan Pengguna</string>
+    <string name="set_reminder">Atur Pengingat</string>
+    <string name="set_language">Atur Bahasa</string>
+    <string name="current_language">Indonesia</string>
+    <string name="user_avatar">Foto Profil Pengguna</string>
+    <string name="delete_title">Hapus Data</string>
+    <string name="delete_message">Apakah anda yakin menghapus data pengguna ini?</string>
+    <string name="delete_text">Hapus</string>
+    <string name="delete_success">Data pengguna berhasil dihapus</string>
+    <string name="info_icon">Ikon Informasi</string>
+    <string name="no_data">Tidak ada data tersedia</string>
+    <string name="app_logo">Logo Aplikasi</string>
 </resources>

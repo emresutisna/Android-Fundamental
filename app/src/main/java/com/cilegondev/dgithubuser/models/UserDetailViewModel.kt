@@ -9,25 +9,33 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserDetailViewModel: ViewModel() {
-    val user = MutableLiveData<User>()
+class UserDetailViewModel : ViewModel() {
+    val mUser = MutableLiveData<User>()
     val followers = MutableLiveData<ArrayList<User>>()
     val followings = MutableLiveData<ArrayList<User>>()
+    var mType = MutableLiveData<String>()
 
-    fun setUser(login_name: String) {
-        ApiClient.create().getUser(login_name).enqueue(object : Callback<User> {
-            override fun onFailure(call: Call<User>, t: Throwable) {
-                Log.d("ERROR ", t.message.toString())
-            }
-            override fun onResponse(
-                call: Call<User>,
-                response: Response<User>
-            ) {
-                user.postValue(response.body())
-                setFollowers(login_name)
-                setFollowings(login_name)
-            }
-        })
+    fun setUser(user: User, type: String) {
+        mType.postValue(type)
+        if (type == "Saved") {
+            mUser.postValue(user)
+        } else {
+            ApiClient.create().getUser(user.login.toString()).enqueue(object : Callback<User> {
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.d("ERROR ", t.message.toString())
+                }
+
+                override fun onResponse(
+                    call: Call<User>,
+                    response: Response<User>
+                ) {
+                    mUser.postValue(response.body())
+                }
+            })
+        }
+        Log.d("DATA USer", user.toString())
+        setFollowers(user.login.toString())
+        setFollowings(user.login.toString())
     }
 
     fun setFollowers(login_name: String) {
@@ -35,6 +43,7 @@ class UserDetailViewModel: ViewModel() {
             override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
                 Log.d("ERROR ", t.message.toString())
             }
+
             override fun onResponse(
                 call: Call<ArrayList<User>>,
                 response: Response<ArrayList<User>>
@@ -49,6 +58,7 @@ class UserDetailViewModel: ViewModel() {
             override fun onFailure(call: Call<ArrayList<User>>, t: Throwable) {
                 Log.d("ERROR ", t.message.toString())
             }
+
             override fun onResponse(
                 call: Call<ArrayList<User>>,
                 response: Response<ArrayList<User>>
@@ -59,14 +69,18 @@ class UserDetailViewModel: ViewModel() {
     }
 
     fun getUser(): LiveData<User> {
-        return user
+        return mUser
     }
 
-    fun getFollowers(): LiveData<ArrayList<User>>{
+    fun getType(): LiveData<String> {
+        return mType
+    }
+
+    fun getFollowers(): LiveData<ArrayList<User>> {
         return followers
     }
 
-    fun getFollowings(): LiveData<ArrayList<User>>{
+    fun getFollowings(): LiveData<ArrayList<User>> {
         return followings
     }
 }

@@ -1,20 +1,17 @@
 package com.cilegondev.dgithubuser.utils
 
-import com.cilegondev.dgithubuser.models.User
 //import com.loopj.android.http.AsyncHttpClient
-import org.json.JSONArray
-import org.json.JSONObject
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import kotlin.math.pow
 
 class GeneralUtils {
-    companion object{
-        fun formatValue(value: Double): String? {
-            var value = value
+    companion object {
+        fun formatValue(mValue: Double): String? {
+            var value = mValue
             val power: Int
             val suffix = " kmbt"
-            var formattedNumber : String
+            var formattedNumber: String
             val formatter: NumberFormat = DecimalFormat("#,###.#")
             power = StrictMath.log10(value).toInt()
             value /= 10.0.pow(power / 3 * 3.toDouble())

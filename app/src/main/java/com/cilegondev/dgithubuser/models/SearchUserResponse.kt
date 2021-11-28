@@ -12,4 +12,4 @@ data class SearchUserResponse(
     var incomplete_results: Boolean = false,
     @SerializedName("items")
     var items: ArrayList<User> = ArrayList()
-): Parcelable
+) : Parcelable

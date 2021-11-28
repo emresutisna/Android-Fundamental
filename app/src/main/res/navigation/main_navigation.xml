@@ -2,22 +2,30 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_navigation"
     app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.cilegondev.dgithubuser.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
+            android:id="@+id/actionNavigationHomeToNavigationProfile"
             app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="true" />
+        <action app:destination="@id/detailActivity"
+            android:id="@+id/actionNavigationHomeToDetailActivity"/>
         <action
-            android:id="@+id/action_navigation_home_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            android:id="@+id/actionNavigationHomeToNavigationSaved"
+            app:destination="@id/navigation_saved"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/actionNavigationHomeToNavigationSetting"
+            app:destination="@id/navigation_setting"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/navigation_profile"
@@ -26,9 +34,25 @@
     <activity
         android:id="@+id/detailActivity"
         android:name="com.cilegondev.dgithubuser.DetailActivity"
-        android:label="DetailActivity" >
+        android:label="DetailActivity">
         <argument
             android:name="user"
             app:argType="com.cilegondev.dgithubuser.models.User" />
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="Normal" />
     </activity>
+    <fragment
+        android:id="@+id/navigation_saved"
+        android:name="com.cilegondev.dgithubuser.fragments.SavedFragment"
+        android:label="SavedFragment">
+        <action app:destination="@id/detailActivity"
+            android:id="@+id/actionNavigationSavedToDetailActivity"/>
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.cilegondev.dgithubuser.fragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
 </navigation>

@@ -9,17 +9,17 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("users")
-    fun getAllUsers() : Call<ArrayList<User>>
+    fun getAllUsers(): Call<ArrayList<User>>
 
     @GET("search/users")
-    fun searchUsers(@Query("q") q: String) : Call<SearchUserResponse>
+    fun searchUsers(@Query("q") q: String): Call<SearchUserResponse>
 
     @GET("users/{name}")
-    fun getUser(@Path("name") name: String) : Call<User>
+    fun getUser(@Path("name") name: String): Call<User>
 
     @GET("users/{name}/followers")
-    fun getFollowers(@Path("name") name: String) : Call<ArrayList<User>>
+    fun getFollowers(@Path("name") name: String): Call<ArrayList<User>>
 
     @GET("users/{name}/following")
-    fun getFollowing(@Path("name") name: String) : Call<ArrayList<User>>
+    fun getFollowing(@Path("name") name: String): Call<ArrayList<User>>
 }

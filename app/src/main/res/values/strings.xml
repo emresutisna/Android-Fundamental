@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">DGithub User</string>
     <string name="menu_home">Home</string>
-    <string name="menu_saved">Saved</string>
+    <string name="menu_saved">Favorite</string>
     <string name="menu_profile">Profile</string>
     <string name="nama_user">User Name</string>
     <string name="username">Username</string>
@@ -13,14 +13,31 @@
     <string name="following_text">Following</string>
     <string name="following_count">120</string>
     <string name="location">Location</string>
-    <string name="follow_text">FOLLOW</string>
     <string name="user_login">User Login</string>
-    <string name="menu_lang">Language</string>
-    <string name="user_company">User Company</string>
-    <string name="user_location">User Location</string>
     <string name="find_user">Search User ...</string>
     <string name="menu_user_info">User Info</string>
     <string name="company_not_set">Company Not Set</string>
     <string name="name_not_set">Fullname Not Set</string>
     <string name="location_not_set">Location Not Set</string>
+    <string name="save_text">Favorite</string>
+    <string name="save_title">Save Data?</string>
+    <string name="save_message">Are you sure to save this user data as favorite?</string>
+    <string name="cancel_text">Cancel</string>
+
+    <string name="saved_text">Favorite User</string>
+    <string name="saved_success">User saved successfully</string>
+    <string name="user_already_exist">This user already exits in database</string>
+    <string name="menu_setting">Setting</string>
+    <string name="setting_text">DGithub - User Setting</string>
+    <string name="set_reminder">Set Reminder</string>
+    <string name="set_language">Set Language</string>
+    <string name="current_language">English</string>
+    <string name="user_avatar">User Profile Photo</string>
+    <string name="delete_title">Delete Data</string>
+    <string name="delete_message">Are you sure to delete this user?</string>
+    <string name="delete_text">Delete</string>
+    <string name="delete_success">User data successfully deleted</string>
+    <string name="info_icon">Information Icon</string>
+    <string name="no_data">No Data Available</string>
+    <string name="app_logo">Application Logo</string>
 </resources>
