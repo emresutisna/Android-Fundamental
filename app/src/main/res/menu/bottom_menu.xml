@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/menu_home"
+        android:id="@+id/home_menu"
+        android:icon="@drawable/outline_widgets_black_48"/>
+    <item android:title="@string/menu_saved"
+        android:id="@+id/saved_menu"
+        android:icon="@drawable/outline_bookmark_border_black_48"/>
+    <item android:title="@string/menu_profile"
+        android:id="@+id/profile_menu"
+        android:icon="@drawable/outline_person_black_48"/>
+    <item android:title="@string/menu_more"
+        android:id="@+id/more_menu"
+        android:icon="@drawable/outline_more_horiz_black_48"/>
+</menu>
