@@ -6,8 +6,10 @@
     <color name="pink">#fa9c92</color>
     <color name="green">#72d9b4</color>
     <color name="blue">#85d7ef</color>
-    <color name="purple">#a89ee1</color>
     <color name="lightGrey">#dbe9f0</color>
+    <color name="cloud">#ecf0f1</color>
+    <color name="grey">#a2adb2</color>
     <color name="blueGrey">#607D8B</color>
     <color name="orange">#f36e36</color>
+    <color name="midnight_blue">#2c3e50</color>
 </resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_activity_navigation"
+    app:startDestination="@id/navigation_user_info">
+
+    <fragment
+        android:id="@+id/navigation_user_info"
+        android:name="com.cilegondev.dgithubuser.fragments.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
+    <fragment
+        android:id="@+id/navigation_follower"
+        android:name="com.cilegondev.dgithubuser.fragments.FollowerFragment"
+        android:label="fragment_follower"
+        tools:layout="@layout/fragment_follower" />
+    <fragment
+        android:id="@+id/navigation_following"
+        android:name="com.cilegondev.dgithubuser.fragments.FollowingFragment"
+        android:label="fragment_following"
+        tools:layout="@layout/fragment_following" />
+</navigation>

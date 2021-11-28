@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DGithub User</string>
+    <string name="menu_home">Beranda</string>
+    <string name="menu_saved">Disimpan</string>
+    <string name="menu_profile">Profil</string>
+    <string name="nama_user">Nama Pengguna</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="company">Perusahaan</string>
+    <string name="repo_text">Repo</string>
+    <string name="repo_count">120</string>
+    <string name="follower_text">Pengikut</string>
+    <string name="follower_count">120</string>
+    <string name="following_text">Mengikuti</string>
+    <string name="following_count">120</string>
+    <string name="location">Lokasi</string>
+    <string name="follow_text">IKUTI</string>
+    <string name="user_login">Nama Login</string>
+    <string name="menu_lang">Bahasa</string>
+    <string name="user_company">Perusahaan Pengguna</string>
+    <string name="user_location">Lokasi Pengguna</string>
+    <string name="find_user">Cari Pengguna...</string>
+    <string name="menu_user_info">Info Pengguna</string>
+    <string name="company_not_set">Perusahaan Belum Diatur</string>
+    <string name="name_not_set">Nama Lengkap Belum Diatur</string>
+    <string name="location_not_set">Lokasi Belum Diatur</string>
+</resources>

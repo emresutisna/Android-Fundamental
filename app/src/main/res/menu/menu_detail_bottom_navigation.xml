@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/menu_user_info"
+        android:id="@+id/navigation_user_info"
+        android:icon="@drawable/outline_person_black_48"/>
+    <item android:title="@string/follower_text"
+        android:id="@+id/navigation_follower"
+        android:icon="@drawable/ic_person_pin"/>
+    <item android:title="@string/following_text"
+        android:id="@+id/navigation_following"
+        android:icon="@drawable/ic_favorite"/>
+</menu>

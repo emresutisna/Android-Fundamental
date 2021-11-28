@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.cilegondev.dgithubuser.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_home_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.cilegondev.dgithubuser.fragments.ProfileFragment"
+        android:label="ProfileFragment" />
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.cilegondev.dgithubuser.DetailActivity"
+        android:label="DetailActivity" >
+        <argument
+            android:name="user"
+            app:argType="com.cilegondev.dgithubuser.models.User" />
+    </activity>
+</navigation>

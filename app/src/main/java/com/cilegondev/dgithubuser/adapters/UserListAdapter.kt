@@ -1,62 +1,62 @@
 package com.cilegondev.dgithubuser.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.cilegondev.dgithubuser.R
 import com.cilegondev.dgithubuser.models.User
+import kotlinx.android.synthetic.main.item_row_user.view.*
 
 
-class UserListAdapter internal constructor(private val listUser: ArrayList<User>, val context: Context) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
+    private val mData = ArrayList<User>()
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_user, viewGroup, false)
-        return ViewHolder(view)
+    fun setData(items: ArrayList<User>) {
+        mData.clear()
+        mData.addAll(items)
+        notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val user = listUser[position]
-
-        Glide.with(holder.itemView.context)
-            .load(user.avatar)
-            .apply(RequestOptions())
-            .into(holder.imgAvatar)
-
-        holder.tvNama.text = user.name
-        holder.tvCompany.text = user.company
-        if(user.follower < 500){
-            holder.card.setCardBackgroundColor(context.resources.getColor(R.color.pink))
-        }else if(user.follower < 1000){
-            holder.card.setCardBackgroundColor(context.resources.getColor(R.color.green))
-        }else{
-            holder.card.setCardBackgroundColor(context.resources.getColor(R.color.blue))
+    inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(user: User, position: Int){
+            with(itemView){
+                Glide.with(this).load(user.avatar_url).into(itemView.imgAvatar)
+                itemView.tvUserLogin.text = user.login
+                itemView.setOnClickListener { onItemClickCallback.onItemClicked(user) }
+                if(position % 2 != 0){
+                    itemView.card.setCardBackgroundColor(ContextCompat.getColor(context, R.color.blue))
+                }else{
+                    itemView.card.setCardBackgroundColor(ContextCompat.getColor(context, R.color.green))
+                }
+            }
         }
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(user) }
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): UserViewHolder {
+        val mView = LayoutInflater.from(parent.context).inflate(R.layout.item_row_user, parent, false)
+        return UserViewHolder(mView)
     }
 
     override fun getItemCount(): Int {
-        return listUser.size
+        return  mData.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var imgAvatar: ImageView = itemView.findViewById(R.id.imgAvatar)
-        var tvNama: TextView = itemView.findViewById(R.id.tvNama)
-        var tvCompany: TextView = itemView.findViewById(R.id.tvCompany)
-        var card: CardView = itemView.findViewById(R.id.card)
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        holder.bind(mData[position], position+1)
     }
+
     interface OnItemClickCallback{
         fun onItemClicked(user: User)
     }
